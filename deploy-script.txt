@@ -1,0 +1,9 @@
+// Deploy Vault v1
+
+forge script script/DeployVault.s.sol:DeployVault --rpc-url base-sepolia --broadcast --verify
+
+https://base-sepolia.g.alchemy.com/v2/FloK9d5OUb-0SZF3z9mg4
+// Deploy Vault v2
+
+
+forge script script/UpgradeVault.s.sol:UpgradeVault --rpc-url sepolia-rpc --broadcast --verify

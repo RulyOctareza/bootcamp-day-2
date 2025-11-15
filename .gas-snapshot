@@ -1,0 +1,6 @@
+FactoryTest:testCreateToken() (gas: 1586558)
+TokenTest:testAddMinterByOwner() (gas: 5403)
+TokenTest:testMintByMinter() (gas: 64718)
+TokenTest:testMintByOwner() (gas: 62443)
+TokenTest:testMintByUser() (gas: 14401)
+VaultTest:testDepositAndWithdraw() (gas: 106256)
