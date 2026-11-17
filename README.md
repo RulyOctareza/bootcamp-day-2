@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/preview/hero.png" alt="Bootcamp Day 2 — ilustrasi smart contract upgradeable" width="100%">
+  <img src="assets/preview/hero.svg" alt="Bootcamp Day 2 — ilustrasi smart contract upgradeable" width="100%">
 </p>
 
 <h1 align="center">Bootcamp Day 2 — Upgradeable Contracts</h1>
