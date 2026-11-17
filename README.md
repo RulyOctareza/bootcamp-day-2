@@ -1,66 +1,86 @@
-## Foundry
+<p align="center">
+  <img src="assets/preview/hero.png" alt="Bootcamp Day 2 — ilustrasi smart contract upgradeable" width="100%">
+</p>
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+<h1 align="center">Bootcamp Day 2 — Upgradeable Contracts</h1>
 
-Foundry consists of:
+<p align="center">
+  <b>Factory, token dengan role minter, dan vault UUPS yang bisa di-upgrade.</b><br>
+  Foundry · OpenZeppelin Upgradeable
+</p>
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+<p align="center">
+  <img alt="Solidity" src="https://img.shields.io/badge/Solidity-0.8-363636?logo=solidity&logoColor=white">
+  <img alt="Foundry" src="https://img.shields.io/badge/Toolchain-Foundry-000000">
+  <img alt="UUPS" src="https://img.shields.io/badge/Pattern-UUPS-4E5EE4">
+</p>
 
-## Documentation
+---
 
-https://book.getfoundry.sh/
+## ✨ Preview
 
-## Usage
+<p align="center">
+  <img src="assets/preview/hero.png" alt="Ilustrasi upgradeable contracts" width="90%">
+</p>
 
-### Build
+> **Catatan:** gambar di atas adalah *ilustrasi konsep*, bukan screenshot asli.
 
-```shell
-$ forge build
+---
+
+## 📖 Tentang
+
+Materi bootcamp hari kedua: membangun sistem kontrak yang bisa tumbuh. Ada `Factory` untuk
+mendeploy token baru, `Token` ERC-20 dengan kontrol akses berbasis role minter, serta
+`Vault` bergaya **UUPS upgradeable** dengan versi keduanya (`VaultV2`).
+
+---
+
+## 📜 Kontrak
+
+| Kontrak | Ringkasan |
+|---|---|
+| `Factory` | `createToken(name, symbol, minterRole)` — deploy token baru |
+| `Token` | ERC-20 + `Ownable` + `AccessControl`: mint/burn, tambah/hapus minter, grant/revoke role |
+| `Vault` | `OwnableUpgradeable` + `UUPSUpgradeable` |
+| `VaultV2` | Versi upgrade dari Vault |
+
+---
+
+## 🛠️ Tech Stack
+
+| Area | Pilihan |
+|---|---|
+| Bahasa | Solidity |
+| Toolchain | Foundry |
+| Library | OpenZeppelin Contracts + Upgradeable |
+
+---
+
+## 🚀 Perintah
+
+```bash
+forge build
+forge test
+forge fmt
+anvil
 ```
 
-### Test
+Deploy dan upgrade mengikuti skrip di `script/` dan `deploy-script.txt`.
 
-```shell
-$ forge test
+---
+
+## 📁 Struktur
+
+```text
+├── src/
+│   ├── Factory.sol
+│   ├── Token.sol
+│   ├── Vault.sol       # UUPS
+│   └── VaultV2.sol
+├── script/
+├── test/
+├── deploy-script.txt
+└── foundry.toml
 ```
 
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+> ⚠️ Kode latihan. Upgradeable contract butuh review storage layout sebelum dipakai di produksi.
